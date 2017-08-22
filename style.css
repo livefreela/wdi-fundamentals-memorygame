@@ -72,6 +72,11 @@ p {
 
 }
 
+i {
+  color: #F15B31;
+  size: 80%;
+}
+
 footer {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
