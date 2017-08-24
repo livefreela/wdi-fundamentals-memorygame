@@ -1,6 +1,7 @@
 body {
   text-align: center;
   margin: 0;
+  /*-webkit-filter: invert(100%);*/
 }
 
 header {
@@ -18,10 +19,6 @@ main {
   margin: 35px auto;
 }
 
-img {
-  margin: 40px 8px 0 8px;
-}
-
 h1 {
   font-family: "Raleway", sans-serif;
   /*color: #0D2C40;*/
@@ -31,7 +28,6 @@ h1 {
   font-size: 45px;
   margin: 0;
   text-transform: uppercase;
-
 }
 
 h2 {
@@ -42,11 +38,6 @@ h2 {
   font-size: 20px;
 }
 
-h4 {
-  font-family: "Droid Serif", serif;
-  line-height: 20px;
-  font-size: 14px;
-}
 
 a {
   font-family: "Raleway", sans-serif;
@@ -69,12 +60,48 @@ p {
   font-family: "Droid Serif", serif;
   line-height: 26px;
   font-size: 18px;
+  margin-bottom: 30px;
 
 }
+
+button {
+  text-decoration: none;
+  border: 2px solid transparent;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0 10px 20px 0;
+  width: 180px;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
 
 i {
   color: #F15B31;
   size: 80%;
+}
+
+img {
+  margin: 40px 8px 0 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  color: #0D2C40;
+  margin-bottom: 20px;
+}
+
+ol {
+  font-family: "Droid Serif", serif;
+  line-height: 24px;
+  font-size: 14px;
+  margin: 0 auto 30px;
 }
 
 footer {
@@ -107,4 +134,49 @@ footer {
   clear: both;
   height: 0;
   font-size: 0;
+}
+
+
+.emphasis {
+  color: #F15B31;
+}
+
+.contain {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+#score {
+  background-color: #00A6B3;
+  color: white;
+}
+
+#reset {
+  background-color: #F15B31;
+  color: white;
+}
+
+#reset:hover {
+  border: 2px solid #F15B31;
+  background: white;
+  color: #F15B31;
+}
+
+#message {
+  font-family: "Raleway", sans-serif;
+  /*color: #0D2C40;*/
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 45px;
+  display: block;
+  width: 300px;
+  height: 28px;
+  color: #F15B31;
+  text-decoration: none;
+  border: 2px solid transparent;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 28px;
+  margin: 0 auto;
+  text-transform: uppercase;
 }

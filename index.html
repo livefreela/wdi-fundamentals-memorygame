@@ -14,23 +14,42 @@
 
   <nav>
     <a href="#instruct">Instructions</a>
-    <a href="#game">Game</a>
+    <a href="#game-board">Game</a>
   </nav>
-  <h4>If you forget, s'okay - we're making memory here</h4>
   <main>
     <div id="instruct">
-      <h2>Instructions</h2>
-      <p>Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards.</p>
+      <h2>Instructions:</h2>
+      <p>Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards.
+      </p>
+      <div class="contain">
+        <h2>Rules:</h2>
+        <ol>
+          <li>A match is worth 10 points.  How many can you get? </li>
+          <li>S'okay if you ain't got memory.  We'll make it better.</li>
+          <li><span class="emphasis">Cards will appear in random order from round to round. </span></li>
+          <li>What were we talking about again?</li>
+          <li>Oh yeah - rules.  We should play this game more.</li>
+        </ol>
+      </div>
+      <hr>
+
+      <div id="message">Pick a Card</div>
     </div>
     <div id="game-board" class="board clearfix"></div>
   </main>
+
+
+  <button type="button" id="reset">Reset</button>
+  <button type="button" id="score"><span id="tally">0</span> POINTS</button>
+  <hr>
+  <p>-- Thanks for playing my game.  Yer brain thanks you too! --</p>
   <div class="social">
     <a href="https://github.com/livefreela"><i class="fa fa-github" aria-hidden="true"></i>About Me</a>
     <a href="mailto:someone@example.com"><i class="fa fa-envelope" aria-hidden="true"></i></i>Yell at Me</a>
   </div>
   <footer class="clearfix">
     <p class="copyright">Copyright 2017</p>
-    <p class="message">Created with &hearts; by <span class="name">GA</span></p>
+    <p class="message">Created with &hearts; by <span class="name">GA/MCB</span></p>
   </footer>
   <script src="js/main.js" charset="utf-8"></script>
 </body>
