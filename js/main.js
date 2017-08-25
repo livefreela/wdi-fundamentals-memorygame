@@ -23,18 +23,28 @@ var cards = [
 ];
 
 var cardsInPlay = [];
-var messageDisplay = document.querySelector('#message');
 var score = 0;
-var tallyUp = document.querySelector('#tally');
 
+var messageDisplay = document.querySelector('#message');
+var tallyUp = document.querySelector('#tally');
+var resetButton = document.getElementById('reset');
+
+//lays out cards
 var createBoard = function(){
   for (var i = 0; i < cards.length; i++){
     var cardElement = document.createElement('img');
     cardElement.setAttribute('src', 'images/back.png');
     cardElement.setAttribute("data-id", i);
     cardElement.addEventListener('click', flipCard);
-
     document.getElementById('game-board').appendChild(cardElement);
+  }
+};
+
+//flips cards back over
+var flipBack = function(){
+  var cardElement = document.querySelectorAll('img');
+  for (var i = 1; i < cards.length-1; i++){
+    cardElement[i].setAttribute('src', 'images/back.png');
   }
 };
 
@@ -48,7 +58,6 @@ var resetBoard = function() {
     shuffleArray(cards);
   }
 };
-
 
 //shuffles the order of cards displayed
 function shuffleArray(array) {
@@ -64,40 +73,41 @@ function shuffleArray(array) {
 //flips cards, checks card count
 var flipCard = function(){
   var cardId = this.getAttribute('data-id');
-  console.log("User flipped " + cards[cardId].rank);
   messageDisplay.textContent = 'Now Match It!';
   cardsInPlay.push(cards[cardId].rank);
-  console.log(cards[cardId].cardImage);
   this.setAttribute('src', cards[cardId].cardImage);
   if (cardsInPlay.length === 2) {
     checkForMatch();
   }
-
+  setTimeout(flipBack, 800);
 };
 
 //checks for card match
 var checkForMatch = function(){
   if (cardsInPlay[0] === cardsInPlay[1]) {
-    // alert("You found a match!");
     messageDisplay.textContent = 'Correct!';
     score += 10;
     tallyUp.textContent = score;
     setTimeout(resetBoard, 800);
+    // return;
   }
   else {
     // alert("Sorry, try again.");
     messageDisplay.textContent = 'Try Again...';
+
     cardsInPlay.pop();
+    setTimeout(flipBack, 800);
   }
 };
 
+//resets score counter to zero
 var resetCount = function() {
   score = 0;
   tallyUp.textContent = score;
 };
 
+//creates the board on page load
 createBoard();
 
-var resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', resetBoard);
 resetButton.addEventListener('click', resetCount);
