@@ -29,6 +29,7 @@ var score = 0;
 var messageDisplay = document.querySelector('#message');
 var tallyUp = document.querySelector('#tally');
 var resetButton = document.getElementById('reset');
+var shuffleButton = document.getElementById('shuffle');
 
 //lays out cards
 var createBoard = function(){
@@ -44,7 +45,7 @@ var createBoard = function(){
 //flips cards back over
 var flipBack = function(){
   var cardElement = document.querySelectorAll('img');
-  for (var i = 1; i < cards.length-1; i++){
+  for (var i = 0; i < cards.length; i++){
     cardElement[i].setAttribute('src', 'images/back.png');
   }
 };
@@ -57,7 +58,7 @@ var resetBoard = function() {
     cardsInPlay = [];
     suitInPlay = [];
     messageDisplay.textContent = "Pick a Card";
-    shuffleArray(cards);
+    // shuffleArray(cards);
   }
 };
 
@@ -92,7 +93,6 @@ var checkForMatch = function(){
     score += 10;
     tallyUp.textContent = score;
     setTimeout(resetBoard, 320);
-    // return;
   }
   else {
     // alert("Sorry, try again.");
@@ -100,6 +100,12 @@ var checkForMatch = function(){
     cardsInPlay.pop();
     suitInPlay.pop();
     setTimeout(flipBack, 300);
+    score -= 5;
+    if (score < 0){
+      score = 0;
+    }
+    tallyUp.textContent = score;
+
   }
 };
 
@@ -109,8 +115,10 @@ var resetCount = function() {
   tallyUp.textContent = score;
 };
 
+
 //creates the board on page load
 createBoard();
 
 resetButton.addEventListener('click', resetBoard);
 resetButton.addEventListener('click', resetCount);
+shuffleButton.addEventListener('click', function(){shuffleArray(cards);});
