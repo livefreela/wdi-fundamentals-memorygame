@@ -94,9 +94,8 @@ var checkForMatch = function(){
   else {
     // alert("Sorry, try again.");
     messageDisplay.textContent = 'Try Again...';
-
     cardsInPlay.pop();
-    setTimeout(flipBack, 800);
+    setTimeout(flipBack, 400);
   }
 };
 
