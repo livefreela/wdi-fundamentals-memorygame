@@ -82,7 +82,7 @@ var flipCard = function(){
   if (cardsInPlay.length === 2) {
     checkForMatch();
   }
-  setTimeout(flipBack, 800);
+  setTimeout(flipBack, 300);
 };
 
 //checks for card match
@@ -91,7 +91,7 @@ var checkForMatch = function(){
     messageDisplay.textContent = 'Correct!';
     score += 10;
     tallyUp.textContent = score;
-    setTimeout(resetBoard, 800);
+    setTimeout(resetBoard, 320);
     // return;
   }
   else {
