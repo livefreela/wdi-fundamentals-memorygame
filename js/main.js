@@ -23,6 +23,7 @@ var cards = [
 ];
 
 var cardsInPlay = [];
+var suitInPlay = [];
 var score = 0;
 
 var messageDisplay = document.querySelector('#message');
@@ -54,6 +55,7 @@ var resetBoard = function() {
     var cardElement = document.getElementsByTagName('img');
     cardElement[i].setAttribute('src', 'images/back.png');
     cardsInPlay = [];
+    suitInPlay = [];
     messageDisplay.textContent = "Pick a Card";
     shuffleArray(cards);
   }
@@ -75,6 +77,7 @@ var flipCard = function(){
   var cardId = this.getAttribute('data-id');
   messageDisplay.textContent = 'Now Match It!';
   cardsInPlay.push(cards[cardId].rank);
+  suitInPlay.push(cards[cardId].suit);
   this.setAttribute('src', cards[cardId].cardImage);
   if (cardsInPlay.length === 2) {
     checkForMatch();
@@ -84,7 +87,7 @@ var flipCard = function(){
 
 //checks for card match
 var checkForMatch = function(){
-  if (cardsInPlay[0] === cardsInPlay[1]) {
+  if (cardsInPlay[0] === cardsInPlay[1] && (suitInPlay[0] !== suitInPlay[1])) {
     messageDisplay.textContent = 'Correct!';
     score += 10;
     tallyUp.textContent = score;
@@ -95,7 +98,8 @@ var checkForMatch = function(){
     // alert("Sorry, try again.");
     messageDisplay.textContent = 'Try Again...';
     cardsInPlay.pop();
-    setTimeout(flipBack, 400);
+    suitInPlay.pop();
+    setTimeout(flipBack, 300);
   }
 };
 
